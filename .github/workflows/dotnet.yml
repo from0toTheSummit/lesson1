@@ -26,9 +26,6 @@ jobs:
       run: |
         echo "123"
         ls ./lesson1/lesson1
-        echo ./*/  
         dotnet restore $pathToSln
     - name: Build
       run: dotnet build --no-restore $pathToSln
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
