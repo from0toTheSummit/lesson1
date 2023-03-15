@@ -15,5 +15,7 @@
     <ProjectReference Include="..\Shared\lesson1.Shared.csproj" />
   </ItemGroup>
 
-
+  <PropertyGroup>
+    <PublishSingleFile>true</PublishSingleFile>
+  </PropertyGroup>
 </Project>
