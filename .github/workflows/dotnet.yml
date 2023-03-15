@@ -25,7 +25,7 @@ jobs:
         echo "123"
         ls ./lesson1/lesson1
         echo ./*/  
-        dotnet restore ./lesson1/lesson1
+        dotnet restore ./lesson1
     - name: Build
       run: dotnet build --no-restore
     - name: Test
