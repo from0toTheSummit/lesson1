@@ -26,11 +26,11 @@ jobs:
       run: |
         echo "123"
         ls ./lesson1/lesson1
-        dotnet restore ./lesson1/lesson1.sln
+        dotnet restore $env:pathToSln
     - name: Build
       run: dotnet build --no-restore $env:pathToSln
     - name: Publish
-      run: dotnet publish $pathToSln/lesson1/Server/lesson1.Server.csproj --self-contained true --runtime linux-x64 --output ./artifacts 
+      run: dotnet publish $env:pathToSln/lesson1/Server/lesson1.Server.csproj --self-contained true --runtime /p:PublishSingleFile=true linux-x64 --output ./artifacts 
     - name: Save artifact
       uses: actions/upload-artifact@v3
       with:
