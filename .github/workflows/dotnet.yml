@@ -28,7 +28,7 @@ jobs:
         ls ./lesson1/lesson1
         dotnet restore ./lesson1/lesson1.sln
     - name: Build
-      run: dotnet build --no-restore ${{ pathToSln }}
+      run: dotnet build --no-restore $env:pathToSln
     - name: Publish
       run: dotnet publish $pathToSln/lesson1/Server/lesson1.Server.csproj --self-contained true --runtime linux-x64 --output ./artifacts 
     - name: Save artifact
