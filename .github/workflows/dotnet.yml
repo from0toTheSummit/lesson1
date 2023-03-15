@@ -1,0 +1,38 @@
+# This workflow will build a .NET project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
+
+name: .NET
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+env:
+  pathToSln: ./lesson1
+  
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 7.0.x
+    - name: Restore dependencies
+      run: |
+        echo "123"
+        ls ./lesson1/lesson1
+        dotnet restore $env:pathToSln
+    - name: Build
+      run: dotnet build --no-restore $env:pathToSln
+    - name: Publish
+      run: dotnet publish $env:pathToSln/lesson1/Server/lesson1.Server.csproj --self-contained true --runtime linux-x64  --output ./artifacts 
+    - name: Save artifact
+      uses: actions/upload-artifact@v3
+      with:
+          name: ArtifactBlazor
+          path: ./artifacts
