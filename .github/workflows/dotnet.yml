@@ -28,6 +28,6 @@ jobs:
         ls ./lesson1/lesson1
         dotnet restore $pathToSln
     - name: Build
-      run: dotnet build --no-restore $pathToSln
-    - uses: actions/upload-artifact@v3
+      run: dotnet build --no-restore $pathToSln   
     - name: Save artifact
+      uses: actions/upload-artifact@v3
