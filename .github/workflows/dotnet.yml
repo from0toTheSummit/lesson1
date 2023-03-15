@@ -26,7 +26,7 @@ jobs:
       run: |
         echo "123"
         ls ./lesson1/lesson1
-        dotnet restore $pathToSln/lesson1.sln
+        dotnet restore ./lesson1/lesson1.sln
     - name: Build
       run: dotnet build --no-restore $pathToSln
     - name: Publish
