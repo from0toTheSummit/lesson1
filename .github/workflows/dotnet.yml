@@ -28,9 +28,11 @@ jobs:
         ls ./lesson1/lesson1
         dotnet restore $pathToSln
     - name: Build
-      run: dotnet build --no-restore $pathToSln   
+      run: dotnet build --no-restore $pathToSln
+    - name: Publish
+      run: dotnet publish $pathToSln --no-build --self-contained true --runtime linux-x64 --output ./artifacts
     - name: Save artifact
       uses: actions/upload-artifact@v3
       with:
-          name: code-coverage-report
+          name: ArtifactBlazor
           path: ./lesson1/lesson1
