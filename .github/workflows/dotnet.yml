@@ -23,7 +23,7 @@ jobs:
     - name: Restore dependencies
       run: |
         echo "123"
-        ls
+        ls -d ./lesson1/lesson1
         dotnet restore ./lesson1/lesson1
     - name: Build
       run: dotnet build --no-restore
