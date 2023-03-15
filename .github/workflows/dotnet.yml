@@ -29,3 +29,5 @@ jobs:
         dotnet restore $pathToSln
     - name: Build
       run: dotnet build --no-restore $pathToSln
+    - uses: actions/upload-artifact@v3
+    - name: Save artifact
