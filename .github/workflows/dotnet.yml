@@ -30,7 +30,7 @@ jobs:
     - name: Build
       run: dotnet build --no-restore $pathToSln
     - name: Publish
-      run: dotnet publish $pathToSln/lesson1/Server/lesson1.Server.csproj --self-contained true --runtime linux-x64 /p:PublishSingleFile=true --output ./artifacts 
+      run: dotnet publish $pathToSln/lesson1/Server/lesson1.Server.csproj --self-contained true --runtime linux-x64 /p:PublishSingleFile=true /p:UseAppHost=true --output ./artifacts 
     - name: Save artifact
       uses: actions/upload-artifact@v3
       with:
