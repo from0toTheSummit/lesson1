@@ -22,9 +22,12 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: 6.0.x
+        dotnet-version: 7.0.x
     - name: Restore dependencies
-      run: dotnet restore $pathToSln
+      run: |
+        echo "123"
+        ls ./lesson1/lesson1
+        dotnet restore $pathToSln
     - name: Build
       run: dotnet build --no-restore $pathToSln
     - name: Publish
